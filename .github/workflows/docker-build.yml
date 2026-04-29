@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - admin
+  pull_request:
+    branches:
+      - main
+      - admin
 
 jobs:
   build:
