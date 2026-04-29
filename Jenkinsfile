@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        dockerTool 'docker'
+    }
+
     environment {
         DOCKER_IMAGE = "cartify-app"
         // Branch-specific variables initialized in stages
