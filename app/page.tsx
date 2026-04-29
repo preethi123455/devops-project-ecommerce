@@ -63,7 +63,7 @@ export default function Home() {
         {/* Hero Banner */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-400 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Welcome to Cartify</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Welcome to Cartify (Staging)</h1>
             <p className="text-lg sm:text-xl text-blue-100">Shop everything from electronics to fashion, books, home & garden, and more</p>
           </div>
         </div>

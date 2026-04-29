@@ -110,10 +110,33 @@ git push origin main
 git push origin admin
 ```
 
-## Directory Protection
+## Automated CI/CD Workflow
 
-Certain files/folders are main-only:
-- `/app/admin/**` - Admin routes
-- Some utilities that are admin-specific
+The project is now configured with an automated Jenkins pipeline that responds to pushes on both branches.
 
-These should NOT be committed to main branch.
+### 1. Working on Admin Branch
+1. **Pull latest**: `git pull origin admin`
+2. **Make changes**: (e.g., update admin dashboard or product logic)
+3. **Commit & Push**:
+   ```bash
+   git add .
+   git commit -m "update admin features"
+   git push origin admin
+   ```
+4. **Automation**: Jenkins detects the push and deploys to **Staging (Port 3001)**.
+
+### 2. Merging and Deploying to Production
+1. **Switch to main**: `git checkout main`
+2. **Pull latest**: `git pull origin main`
+3. **Merge admin**: `git merge admin`
+4. **Push to main**:
+   ```bash
+   git push origin main
+   ```
+5. **Automation**: Jenkins detects the push and deploys to **Production (Port 3000)**.
+
+---
+
+## Commands Summary
+- **Staging Test (Port 3001)**: Push to `admin` branch
+- **Production Update (Port 3000)**: Merge `admin` into `main` and push to `main`
