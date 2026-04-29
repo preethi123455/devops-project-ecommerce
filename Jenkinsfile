@@ -16,6 +16,12 @@ pipeline {
             }
         }
 
+        stage('Debugging') {
+            steps {
+                sh 'docker --version || echo "Docker not found"'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE}:${env.BRANCH_NAME} ."
